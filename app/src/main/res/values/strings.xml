@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">Coswara</string>
+    <string name="app_name_small">coswara</string>
+    <string name="health_status_1">I have been identified with Covid-19 and have mild symptoms</string>
+    <string name="health_status_2">I have been identified with Covid-19 and have moderately severe symptoms</string>
+    <string name="health_status_3">I was identified with Covid-19 and have recovered fully</string>
+    <string name="health_status_4">I have other pre-existing respiratory illnesses but have not been identified with Covid-19</string>
+    <string name="health_status_5">I have no respiratory illness but I may have been exposed to the virus through contact</string>
+    <string name="health_status_6">I do not have any respiratory illnesses</string>
+    <string name="intro_content">Project Coswara by the <a href="https://www.iisc.ac.in/">Indian Institute of Science (IISc)</a> Bangalore is an attempt to build a diagnostic tool for Covid–19 based on respiratory, cough and speech sounds. The project is in the data collection stage now. It requires the participants to provide a recording of breathing sounds, cough sounds, sustained phonation of vowel sounds and a counting exercise which takes around 5–7 minutes of your time. No personally identifiable data is collected from the participants.</string>
+    <string name="checkbox_health_fever">Fever</string>
+    <string name="checkbox_health_smoker">Smoker</string>
+    <string name="checkbox_health_asthma">Asthma</string>
+    <string name="checkbox_health_cld">Chronic lung disease</string>
+    <string name="checkbox_health_ht">Hypertension</string>
+    <string name="checkbox_health_ihd">Ischemic heart disease</string>
+    <string name="checkbox_health_diabetes">Diabetes</string>
+    <string name="text_play_sample">Play Sample</string>
+    <string name="text_stop_playing">Stop Playing</string>
+    <string name="text_stop">Stop</string>
+    <string name="text_start_recording">Start Recording</string>
+    <string name="text_stop_recording">Stop Recording</string>
+    <string name="text_play">Play</string>
+    <string name="text_thank_you">Thank you for being a part of this!
+        Please share it among your friends and relatives.
+        Follow us at <a href="https://www.facebook.com/coswara.iisc">Facebook</a> and <a href="https://twitter.com/coswara_iisc">Twitter</a> to get the latest updates.</string>
+    <string name="text_warning">The recording device should not be shared with others before cleaning/sanitation</string>
+    <string name="text_participation">Thank you for your participation!</string>
+    <string name="text_feedback_thanks">Thank you for your feedback!</string>
+    <string name="checkbox_health_cold">Cold</string>
+    <string name="text_mandatory">All fields marked (*) are mandatory</string>
+    <string name="text_locality">Locality/District</string>
+    <string name="text_location">Location</string>
+    <string name="text_no">No</string>
+    <string name="text_yes">Yes</string>
+    <string name="text_returning_user">Are you a returning user?</string>
+    <string name="text_proficient_in_english">Are you proficient in English?*</string>
+    <string name="text_valid_age">Doesn\'t look like a valid age</string>
+    <string name="text_age_hint">Age*</string>
+    <string name="text_submit">Submit</string>
+    <string name="text_start_session">Start a new session</string>
+    <string name="text_alert_icon">alert_icon</string>
+    <string name="test_developed_by">Developed by</string>
+    <string name="text_leap_org_image">Leap org image</string>
+    <string name="text_iisc_org_image">IISc org image</string>
+    <string name="cognknit_org_image">Cognknit org image</string>
+    <string name="text_your_comments">Let us know your comments!</string>
+    <string name="text_feedback">Feedback</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="project_coswara">Project  Coswara</string>
+    <string name="proceed_to_data_recording">Proceed to Data Recording</string>
+    <string name="read_more">Read more</string>
+    <string name="current_status">Current Status*</string>
+    <string name="health_conditions">Health Conditions</string>
+    <string name="tick_mark">Tick mark</string>
+    <string name="start_recording">Start recording</string>
+    <string name="play_sample">Play sample</string>
+    <string name="play">Play</string>
+    <string name="upload">Upload</string>
+    <string name="record_again">Record again</string>
+    <string name="uploading_please_wait">Uploading please wait!</string>
+    <string name="cancel">Cancel</string>
+    <string name="enable_test">Enable test</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+</resources>

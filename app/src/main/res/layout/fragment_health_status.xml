@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/health_status_radio_mb"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/current_status"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_health_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_health_status_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_1"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radio_health_status_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_2"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radio_health_status_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_3"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radio_health_status_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_4"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radio_health_status_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_5"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/radio_health_status_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/health_status_radio_mb"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/health_status_6"
+                android:textSize="15sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/health_conditions"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_cold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_cold"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_fever"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_fever"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_smoker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_smoker"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_asthma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_asthma"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_cld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_cld"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_ht"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_ht"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_ihd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_ihd"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_diabetes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_diabetes"
+                android:textSize="17sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_health_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/previous"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</ScrollView>

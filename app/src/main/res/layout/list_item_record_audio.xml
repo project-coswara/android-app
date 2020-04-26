@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_record_instruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/open_sans"
+        android:textSize="15sp" />
+
+    <ProgressBar
+        android:id="@+id/progress_recording_finish"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:visibility="gone"
+        android:layout_marginTop="10dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_before_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/button_start_recording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/start_recording" />
+
+        <Button
+            android:id="@+id/button_play_sample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/play_sample" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_after_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/button_play_recording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/play" />
+
+        <Button
+            android:id="@+id/button_upload_recording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/upload" />
+
+        <Button
+            android:id="@+id/button_record_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/record_again" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_upload_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/uploading_please_wait" />
+
+        <Button
+            android:id="@+id/button_cancel_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_border_bg"
+            android:fontFamily="@font/open_sans"
+            android:minHeight="0dp"
+            android:text="@string/cancel" />
+
+    </LinearLayout>
+
+</LinearLayout>

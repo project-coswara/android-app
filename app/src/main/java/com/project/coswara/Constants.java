@@ -101,7 +101,7 @@ public class Constants {
     public static final String GENERAL_PREFS = "general_info"; //store general info in these prefs
 
     /*
-        EXTERNAL URLS
+        EXTERNAL URLS USED
      */
     public static final String READ_MORE_URL = "https://coswara.iisc.ac.in/about";
     public static final String LEAP_URL = "http://leap.ee.iisc.ac.in/";

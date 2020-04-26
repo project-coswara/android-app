@@ -160,17 +160,50 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button_health_prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:background="@drawable/rounded_border_bg"
-            android:fontFamily="@font/open_sans"
-            android:minHeight="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
-            android:text="@string/previous"
-            android:textColor="@color/colorPrimary" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_health_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/rounded_border_bg"
+                android:fontFamily="@font/open_sans"
+                android:minHeight="0dp"
+                android:text="@string/previous"
+                android:textColor="@color/colorPrimary" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button_health_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/rounded_shape_bg"
+                android:fontFamily="@font/open_sans"
+                android:minHeight="0dp"
+                android:text="@string/text_submit"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progress_submit"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="25dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

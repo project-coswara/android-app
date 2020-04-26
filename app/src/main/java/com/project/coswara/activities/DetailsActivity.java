@@ -36,14 +36,12 @@ import java.util.Map;
 public class DetailsActivity extends AppCompatActivity {
 
     private static final String TAG = DetailsActivity.class.getName();
-    private Button submitBtn;
     private FirebaseFirestore db;
     private String uid;
 
     private Metadata metadata = null;
     private HealthData healthData = null;
 
-    private ProgressBar progressBar;
     private CustomViewPager viewPager;
     private LinearLayout tabStrip;
 
@@ -59,13 +57,14 @@ public class DetailsActivity extends AppCompatActivity {
         void changeTab(int currPos, int direction);
     }
 
+    public interface SubmitForm {
+        void submit();
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         metadata = Utils.getStoredMetadata(this);
         if (metadata == null) metadata = new Metadata();
@@ -79,7 +78,6 @@ public class DetailsActivity extends AppCompatActivity {
         Log.d(TAG, "uid: " + uid);
         Toast.makeText(this, Constants.INFO_CONTEXT, Toast.LENGTH_LONG).show();
 
-        progressBar = (ProgressBar) findViewById(R.id.progress_details_submit);
         viewPager = (CustomViewPager) findViewById(R.id.pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
 
@@ -89,7 +87,7 @@ public class DetailsActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         CustomTabsAdapter tabsAdapter = new CustomTabsAdapter(getSupportFragmentManager(),
-                tabLayout.getTabCount(), new MetadataUpdate() {
+                tabLayout.getTabCount(), metadata, healthData, new MetadataUpdate() {
             @Override
             public void updateMetadata(Metadata updatedData) {
                 metadata = updatedData;
@@ -109,7 +107,18 @@ public class DetailsActivity extends AppCompatActivity {
                 int newPos = currPos + direction; //direction is +1 is move ahead, -1 if move backwards
                 viewPager.setCurrentItem(newPos);
             }
-        }, metadata, healthData);
+        }, new SubmitForm(){
+
+            @Override
+            public void submit() {
+                if (validate()) {
+                    sendToFirebase();
+                }else{
+                    Toast.makeText(DetailsActivity.this, "Please fill all required data",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         viewPager.setAdapter(tabsAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -132,22 +141,9 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
         tabStrip = (LinearLayout) tabLayout.getChildAt(0);
-
-        submitBtn = (Button) findViewById(R.id.meta_data_submit_btn);
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (validate()) {
-                    submitBtn.setVisibility(View.GONE);
-                    progressBar.setVisibility(View.VISIBLE);
-
-                    sendToFirebase();
-                }
-            }
-        });
     }
 
-    //false = enable, true = disable
+    //return false = enable, true = disable
     private void toggleTabLayoutHeader(final boolean enable){
         for(int i = 0; i < tabStrip.getChildCount(); i++) {
             tabStrip.getChildAt(i).setOnTouchListener(new View.OnTouchListener() {
@@ -166,12 +162,11 @@ public class DetailsActivity extends AppCompatActivity {
     private void toggleSubmit() {
         viewPager.setPagingEnabled(validate());
         toggleTabLayoutHeader(validate());
-        submitBtn.setEnabled(validate());
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    protected void onStop() {
+        super.onStop();
 
         Utils.storeMetadata(this, metadata);
         Utils.storeHealthData(this, healthData);
@@ -201,13 +196,13 @@ public class DetailsActivity extends AppCompatActivity {
         if (metadata.getLocality() != null && !metadata.getLocality().isEmpty())
             userMetadata.put("l_l", metadata.getLocality());
 
-        if(Utils.isTestModeOn(DetailsActivity.this)) userMetadata.put("test", true);
-
         for (Map.Entry mapElement : healthData.getHealthMap().entrySet()) {
             String key = (String) mapElement.getKey();
             Boolean val = (Boolean) mapElement.getValue();
             if (val) userMetadata.put(key, true);
         }
+
+        if(Utils.isTestModeOn(DetailsActivity.this)) userMetadata.put("test", true);
 
         String dateString = Utils.getDateString();
 

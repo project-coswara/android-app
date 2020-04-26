@@ -220,6 +220,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 if (state == STATE_NOT_STARTED) {
+                    if (samplePlayStatus) {
+                        togglePlaySample(false);
+                        exoPlayRawAudio(stageId, samplePlayStatus);
+                    }
                     toggleButtonBg(startRecordingBtn, true);
                     launchTask(ABSOLUTE_PATH, fileName);
                     updateUI(STATE_RECORDING_START);

@@ -14,43 +14,15 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/open_sans_light"
-                android:letterSpacing="0.02"
-                android:text="@string/app_name_small"
-                android:textColor="@android:color/white"
-                android:textSize="27sp" />
-
-            <Button
-                android:id="@+id/meta_data_submit_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/rounded_border_bg"
-                android:fontFamily="@font/open_sans_bold"
-                android:minHeight="0dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:text="@string/text_submit" />
-
-            <ProgressBar
-                android:id="@+id/progress_details_submit"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginEnd="30dp"
-                android:visibility="gone" />
-
-        </LinearLayout>
+            android:fontFamily="@font/open_sans_light"
+            android:letterSpacing="0.02"
+            android:text="@string/app_name_small"
+            android:textColor="@android:color/white"
+            android:textSize="27sp" />
 
     </androidx.appcompat.widget.Toolbar>
 

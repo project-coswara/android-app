@@ -22,12 +22,14 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
     private final DetailsActivity.NavigateTabs switchTabsCallback;
     private final Metadata metadata;
     private final HealthData healthData;
+    private final DetailsActivity.SubmitForm submitFormCallback;
 
     public CustomTabsAdapter(@NonNull FragmentManager fm, int behavior,
+                             Metadata metadata, HealthData healthData,
                              DetailsActivity.MetadataUpdate metadataCallback,
                              DetailsActivity.HealthDataUpdate healthDataCallback,
                              DetailsActivity.NavigateTabs switchTabsCallback,
-                             Metadata metadata, HealthData healthData) {
+                             DetailsActivity.SubmitForm submitFormCallback) {
         super(fm, behavior);
         this.numOfTabs = behavior;
         this.metadataCallback = metadataCallback;
@@ -35,6 +37,7 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
         this.switchTabsCallback = switchTabsCallback;
         this.metadata = metadata;
         this.healthData = healthData;
+        this.submitFormCallback = submitFormCallback;
     }
 
     @NonNull
@@ -44,7 +47,8 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new MetadataFragment(metadataCallback, switchTabsCallback, metadata);
             case 2:
-                return new HealthStatusFragment(healthDataCallback, switchTabsCallback, healthData);
+                return new HealthStatusFragment(healthDataCallback, switchTabsCallback, healthData,
+                        submitFormCallback);
             case 0:
             default:
                 return new DisclaimerFragment(switchTabsCallback);

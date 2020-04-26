@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -33,6 +34,9 @@ public class HealthStatusFragment extends Fragment {
     private Context context;
     private final HealthData healthData;
     private final DetailsActivity.NavigateTabs navigateTabsCallback;
+    private Button submitBtn;
+    private final DetailsActivity.SubmitForm submitFormCallback;
+    private ProgressBar progressBar;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -42,10 +46,11 @@ public class HealthStatusFragment extends Fragment {
 
     public HealthStatusFragment(DetailsActivity.HealthDataUpdate callback,
                                 DetailsActivity.NavigateTabs navigateTabsCallback,
-                                HealthData healthData) {
+                                HealthData healthData, DetailsActivity.SubmitForm submitFormCallback) {
         this.callback = callback;
         this.healthData = healthData;
         this.navigateTabsCallback = navigateTabsCallback;
+        this.submitFormCallback = submitFormCallback;
     }
 
     @Nullable
@@ -54,10 +59,21 @@ public class HealthStatusFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_health_status, container, false);
 
         Button prevButton = (Button) view.findViewById(R.id.button_health_prev);
+        submitBtn = (Button) view.findViewById(R.id.button_health_submit);
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_submit);
+
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateTabsCallback.changeTab(2, -1);
+            }
+        });
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                submitFormCallback.submit();
             }
         });
 
@@ -85,7 +101,8 @@ public class HealthStatusFragment extends Fragment {
                         healthData.setCurrentStatus(HEALTH_STATUSES[5]);
                         break;
                 }
-                callback.updateHealthData(healthData);
+
+                update();
             }
         });
 
@@ -105,7 +122,7 @@ public class HealthStatusFragment extends Fragment {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     healthData.updateMap(CONDITIONS[iF], isChecked);
-                    callback.updateHealthData(healthData);
+                    update();
                 }
             });
         }
@@ -126,8 +143,15 @@ public class HealthStatusFragment extends Fragment {
                     if (pos != -1) checkBoxes.get(pos).setChecked(true);
                 }
             }
+
+            update();
         }
 
         return view;
+    }
+
+    private void update(){
+        submitBtn.setVisibility(healthData.isComplete() ? View.VISIBLE : View.GONE);
+        callback.updateHealthData(healthData);
     }
 }

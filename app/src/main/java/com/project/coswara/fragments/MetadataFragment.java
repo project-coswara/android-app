@@ -27,9 +27,12 @@ import com.project.coswara.adapters.CustomSpinnerAdapter;
 import com.project.coswara.model.Metadata;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.project.coswara.Constants.COUNTRIES;
+import static com.project.coswara.Constants.DEFAULT_COUNTRY;
+import static com.project.coswara.Constants.DEFAULT_STATE;
 import static com.project.coswara.Constants.GENDERS;
 
 public class MetadataFragment extends Fragment {
@@ -81,7 +84,7 @@ public class MetadataFragment extends Fragment {
         englishGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
+                switch (checkedId) {
                     case R.id.input_english_radio_yes:
                         metadata.setEnglishProficient(1);
                         break;
@@ -97,7 +100,7 @@ public class MetadataFragment extends Fragment {
         returningUserGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
+                switch (checkedId) {
                     case R.id.radio_returning_user_yes:
                         metadata.setReturningUser(1);
                         break;
@@ -120,19 +123,19 @@ public class MetadataFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-                    if(s == null || s.length() == 0) metadata.setAge(0);
-                    else{
+                    if (s == null || s.length() == 0) metadata.setAge(0);
+                    else {
                         int age = Integer.parseInt(s.toString());
-                        if(age > 0 && age <= 140) {
+                        if (age > 0 && age <= 140) {
                             metadata.setAge(age);
                             ageError.setVisibility(View.GONE);
-                        }else{
+                        } else {
                             metadata.setAge(0);
                             ageError.setVisibility(View.VISIBLE);
                         }
                     }
                     update();
-                }catch (NumberFormatException e){
+                } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
             }
@@ -152,7 +155,7 @@ public class MetadataFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s == null || s.length() == 0) metadata.setLocality("");
+                if (s == null || s.length() == 0) metadata.setLocality("");
                 else metadata.setLocality(s.toString());
                 update();
             }
@@ -174,7 +177,7 @@ public class MetadataFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String gender = GENDERS[position];
-                if(gender != null) {
+                if (gender != null) {
                     metadata.setGender(gender.toLowerCase());
                     update();
                 }
@@ -226,16 +229,16 @@ public class MetadataFragment extends Fragment {
         });
 
         //init previously chosen values
-        if(metadata != null){
-            if(metadata.getAge() != 0) ageEdit.setText(String.valueOf(metadata.getAge()));
+        if (metadata != null) {
+            if (metadata.getAge() != 0) ageEdit.setText(String.valueOf(metadata.getAge()));
             genderSpinner.setSelection(Utils.getArrayPos(GENDERS, metadata.getGender(), 0));
 
             int engProf = metadata.getEnglishProficient();
-            if(engProf == 1) englishGroup.check(R.id.input_english_radio_yes);
+            if (engProf == 1) englishGroup.check(R.id.input_english_radio_yes);
             else englishGroup.check(R.id.input_english_radio_no);
 
             int returnUser = metadata.getReturningUser();
-            if(returnUser == 1) returningUserGroup.check(R.id.radio_returning_user_yes);
+            if (returnUser == 1) returningUserGroup.check(R.id.radio_returning_user_yes);
             else returningUserGroup.check(R.id.radio_returning_user_no);
 
             selectedCountry = metadata.getCountry();
@@ -245,26 +248,27 @@ public class MetadataFragment extends Fragment {
             updateStateSpinner();
 
             String loc = metadata.getLocality();
-            if(loc != null) localityEdit.setText(loc);
+            if (loc != null) localityEdit.setText(loc);
         }
 
         return view;
     }
 
-    private void update(){
+    private void update() {
         nextBtn.setVisibility(metadata.isComplete() ? View.VISIBLE : View.GONE);
         callback.updateMetadata(metadata);
     }
 
-    private void updateStateSpinner(){
+    private void updateStateSpinner() {
         states = LoadCountryStateData.getCities(selectedCountry);
-        if(states == null) return;
+        if (states == null) return;
 
         ArrayAdapter<String> stateAdapter = new CustomSpinnerAdapter(context, android.R.layout.simple_spinner_item, states);
         stateAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(stateAdapter);
 
-        if(selectedState != null && !selectedState.isEmpty()) stateSpinner.setSelection(states.indexOf(selectedState));
+        if (selectedState != null && !selectedState.isEmpty())
+            stateSpinner.setSelection(states.indexOf(selectedState));
 
         stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

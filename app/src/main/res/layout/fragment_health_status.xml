@@ -103,11 +103,27 @@
                 android:textSize="17sp" />
 
             <CheckBox
+                android:id="@+id/checkbox_health_status_cough"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_cough"
+                android:textSize="17sp" />
+
+            <CheckBox
                 android:id="@+id/checkbox_health_status_fever"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans"
                 android:text="@string/checkbox_health_fever"
+                android:textSize="17sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox_health_status_pneumonia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/checkbox_health_pneumonia"
                 android:textSize="17sp" />
 
             <CheckBox

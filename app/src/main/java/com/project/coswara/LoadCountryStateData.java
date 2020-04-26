@@ -67,15 +67,23 @@ public class LoadCountryStateData {
     }
 
     public static List<String> getCities(String countryName) {
-        if(countryName == null) return  null;
+        if (countryName == null) return null;
 
         if (countryName.equalsIgnoreCase(DEFAULT_COUNTRY))
             return new ArrayList<>(Collections.singletonList(DEFAULT_STATE));
 
-        return countryStateMap.get(countryName.toLowerCase()
+        List<String> states = countryStateMap.get(countryName.toLowerCase()
                 .replace(" ", "_")
                 .replace("(", "")
                 .replace(")", "")
         );
+
+        if (states != null) {
+            states.set(0, DEFAULT_STATE);
+        } else {
+            states = new ArrayList<>(Collections.singletonList(DEFAULT_STATE));
+        }
+
+        return states;
     }
 }

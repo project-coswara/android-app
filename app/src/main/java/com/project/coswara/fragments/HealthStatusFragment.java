@@ -72,6 +72,7 @@ public class HealthStatusFragment extends Fragment {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                submitBtn.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 submitFormCallback.submit();
             }
@@ -115,6 +116,8 @@ public class HealthStatusFragment extends Fragment {
         checkBoxes.add((CheckBox) view.findViewById(R.id.checkbox_health_status_ht));
         checkBoxes.add((CheckBox) view.findViewById(R.id.checkbox_health_status_ihd));
         checkBoxes.add((CheckBox) view.findViewById(R.id.checkbox_health_status_diabetes));
+        checkBoxes.add((CheckBox) view.findViewById(R.id.checkbox_health_status_cough));
+        checkBoxes.add((CheckBox) view.findViewById(R.id.checkbox_health_status_pneumonia));
 
         for (int i = 0; i < checkBoxes.size(); i++) {
             final int iF = i;

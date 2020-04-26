@@ -56,21 +56,25 @@ public class Constants {
     public static final String[] HEALTH_STATUSES = {"positive_mild", "positive_moderate", "recovered_full",
             "resp_illness_not_identified", "no_resp_illness_exposed", "healthy"};
 
-    public static final String[] CONDITIONS = {"cold", "fever", "smoker", "asthma", "cld", "ht", "ihd", "diabetes"};
+    public static final String[] CONDITIONS = {"cold", "cough", "fever", "pneumonia", "smoker", "asthma",
+            "cld", "ht", "ihd", "diabetes"};
 
     /*
         RECORD AUDIO
      */
     public static final String[] OPTIONS_LIST = {"Breathing (shallow)", "Breathing (deep)", "Cough (shallow)",
-            "Cough (heavy)", "Vowel /a/", "Vowel /e/", "Vowel /o/", "Counting (normal)", "Counting (fast)", "Finished"};
+            "Cough (heavy)", "Vowel /a/", "Vowel /e/", "Vowel /o/", "Counting (normal)", "Counting (fast)",
+            "Finished"};
 
     public static final String[] VALUES_LIST = {"breathing-shallow", "breathing-deep", "cough-shallow",
             "cough-heavy", "vowel-a", "vowel-e", "vowel-o", "counting-normal", "counting-fast", "done"};
 
-    public static final String[] INSTRUCTIONS_LIST = {"Breathe fast 5 times", "Breathe deeply 5 times", "Cough mildly 3 times",
-            "Cough deeply 3 times", "Say /a/ as in 'made' and sustain as long as possible",
+    public static final String[] INSTRUCTIONS_LIST = {"Breathe fast 5 times", "Breathe deeply 5 times",
+            "Cough mildly 3 times", "Cough deeply 3 times",
+            "Say /a/ as in 'made' and sustain as long as possible",
             "Say /e/ as in \'beet\' and sustain as long as possible",
-            "Say /o/ as in \'cool\' and sustain as long as possible", "Count from 1 to 20", "Count from 1 to 20 faster",
+            "Say /o/ as in \'cool\' and sustain as long as possible",
+            "Count from 1 to 20", "Count from 1 to 20 faster",
             "Thank you for your participation!"};
 
     /*

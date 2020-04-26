@@ -63,4 +63,6 @@
     <string name="enable_test">Enable test</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+    <string name="checkbox_health_cough">Cough</string>
+    <string name="checkbox_health_pneumonia">Pneumonia</string>
 </resources>

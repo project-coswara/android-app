@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="languages_array">
+        <item>English</item>
+        <item>हिन्दी</item>
+    </string-array>
+    <string-array name="tab_titles">
+        <item>@string/tab_title_disclaimer</item>
+        <item>@string/tab_title_metadata</item>
+        <item>@string/tab_title_health_status</item>
+    </string-array>
+    <string-array name="genders">
+        <item>@string/gender</item>
+        <item>@string/male</item>
+        <item>@string/female</item>
+        <item>@string/gender_other</item>
+    </string-array>
+    <string-array name="instructions_list">
+        <item>@string/instruction_breathe_fast</item>
+        <item>@string/instruction_breathe_deeply</item>
+        <item>@string/instruction_cough_mildly</item>
+        <item>@string/instruction_cough_deeply</item>
+        <item>@string/instruction_say_a</item>
+        <item>@string/instruction_say_e</item>
+        <item>@string/instruction_say_o</item>
+        <item>@string/instruction_count</item>
+        <item>@string/instruction_count_fast</item>
+        <item>@string/instruction_thank_you</item>
+    </string-array>
+    <string-array name="options_list">
+        <item>@string/option_breathing_shallow</item>
+        <item>@string/option_breathing_deep</item>
+        <item>@string/option_cough_shallow</item>
+        <item>@string/option_cough_heavy</item>
+        <item>@string/option_vowel_a</item>
+        <item>@string/option_vowel_e</item>
+        <item>@string/option_vowel_o</item>
+        <item>@string/option_counting_normal</item>
+        <item>@string/option_counting_fast</item>
+        <item>@string/option_finished</item>
+    </string-array>
+</resources>

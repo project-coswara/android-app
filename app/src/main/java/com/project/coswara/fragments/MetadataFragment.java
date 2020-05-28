@@ -20,38 +20,40 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Constants;
+import com.project.coswara.util.Utils;
 import com.project.coswara.activities.DetailsActivity;
-import com.project.coswara.LoadCountryStateData;
+import com.project.coswara.util.LoadCountryStateData;
 import com.project.coswara.adapters.CustomSpinnerAdapter;
 import com.project.coswara.model.Metadata;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import static com.project.coswara.Constants.COUNTRIES;
-import static com.project.coswara.Constants.DEFAULT_COUNTRY;
-import static com.project.coswara.Constants.DEFAULT_STATE;
-import static com.project.coswara.Constants.GENDERS;
 
 public class MetadataFragment extends Fragment {
 
     private Context context;
-    private String selectedCountry = COUNTRIES[0], selectedState = "";
+    private final String[] countries;
+    private String selectedCountry = "", selectedState = "";
     private List<String> states = new ArrayList<>();
     private Spinner stateSpinner;
     private final DetailsActivity.MetadataUpdate callback;
     private final DetailsActivity.NavigateTabs navigateTabsCallback;
     private final Metadata metadata;
     private Button nextBtn;
+    private final String[] genders;
+    private final String defaultState;
 
     public MetadataFragment(DetailsActivity.MetadataUpdate callback,
                             DetailsActivity.NavigateTabs navigateTabsCallback,
-                            Metadata metadata) {
+                            Metadata metadata, String[] countries, String[] genders,
+                            String defaultState) {
         this.callback = callback;
         this.navigateTabsCallback = navigateTabsCallback;
         this.metadata = metadata;
+        this.countries = countries;
+        this.genders = genders;
+        this.defaultState = defaultState;
     }
 
     @Override
@@ -168,7 +170,7 @@ public class MetadataFragment extends Fragment {
 
         final Spinner genderSpinner = (Spinner) view.findViewById(R.id.input_gender);
         ArrayAdapter<String> genderAdapter = new CustomSpinnerAdapter(context,
-                android.R.layout.simple_spinner_item, GENDERS);
+                android.R.layout.simple_spinner_item, genders);
 
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         genderSpinner.setAdapter(genderAdapter);
@@ -176,7 +178,7 @@ public class MetadataFragment extends Fragment {
         genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String gender = GENDERS[position];
+                String gender = Constants.GENDERS[position];
                 if (gender != null) {
                     metadata.setGender(gender.toLowerCase());
                     update();
@@ -191,7 +193,7 @@ public class MetadataFragment extends Fragment {
 
         final Spinner countrySpinner = (Spinner) view.findViewById(R.id.input_country);
         ArrayAdapter<String> countryAdapter = new CustomSpinnerAdapter(context, android.R.layout.simple_spinner_item,
-                COUNTRIES);
+                countries);
 
         countryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countrySpinner.setAdapter(countryAdapter);
@@ -202,7 +204,7 @@ public class MetadataFragment extends Fragment {
         countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCountry = COUNTRIES[position];
+                selectedCountry = position == 0 ? Constants.DEFAULT_COUNTRY_EN : countries[position];
                 metadata.setCountry(selectedCountry);
                 update();
                 updateStateSpinner();
@@ -231,7 +233,7 @@ public class MetadataFragment extends Fragment {
         //init previously chosen values
         if (metadata != null) {
             if (metadata.getAge() != 0) ageEdit.setText(String.valueOf(metadata.getAge()));
-            genderSpinner.setSelection(Utils.getArrayPos(GENDERS, metadata.getGender(), 0));
+            genderSpinner.setSelection(Utils.getArrayPos(Constants.GENDERS, metadata.getGender(), 0));
 
             int engProf = metadata.getEnglishProficient();
             if (engProf == 1) englishGroup.check(R.id.input_english_radio_yes);
@@ -242,7 +244,7 @@ public class MetadataFragment extends Fragment {
             else returningUserGroup.check(R.id.radio_returning_user_no);
 
             selectedCountry = metadata.getCountry();
-            countrySpinner.setSelection(Utils.getArrayPos(COUNTRIES, selectedCountry, 0));
+            countrySpinner.setSelection(Utils.getArrayPos(countries, selectedCountry, 0));
 
             selectedState = metadata.getState();
             updateStateSpinner();
@@ -260,7 +262,7 @@ public class MetadataFragment extends Fragment {
     }
 
     private void updateStateSpinner() {
-        states = LoadCountryStateData.getCities(selectedCountry);
+        states = LoadCountryStateData.getCities(selectedCountry, defaultState);
         if (states == null) return;
 
         ArrayAdapter<String> stateAdapter = new CustomSpinnerAdapter(context, android.R.layout.simple_spinner_item, states);

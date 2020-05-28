@@ -7,7 +7,7 @@
     <string name="health_status_4">I have other pre-existing respiratory illnesses but have not been identified with Covid-19</string>
     <string name="health_status_5">I have no respiratory illness but I may have been exposed to the virus through contact</string>
     <string name="health_status_6">I do not have any respiratory illnesses</string>
-    <string name="intro_content">Project Coswara by the <a href="https://www.iisc.ac.in/">Indian Institute of Science (IISc)</a> Bangalore is an attempt to build a diagnostic tool for Covid–19 based on respiratory, cough and speech sounds. The project is in the data collection stage now. It requires the participants to provide a recording of breathing sounds, cough sounds, sustained phonation of vowel sounds and a counting exercise which takes around 5–7 minutes of your time. No personally identifiable data is collected from the participants.</string>
+    <string name="intro_content">Project Coswara by the Indian Institute of Science (IISc) Bangalore is an attempt to build a diagnostic tool for Covid–19 based on respiratory, cough and speech sounds. The project is in the data collection stage now. It requires the participants to provide a recording of breathing sounds, cough sounds, sustained phonation of vowel sounds and a counting exercise which takes around 5–7 minutes of your time. No personally identifiable data is collected from the participants.</string>
     <string name="checkbox_health_fever">Fever</string>
     <string name="checkbox_health_smoker">Smoker</string>
     <string name="checkbox_health_asthma">Asthma</string>
@@ -15,13 +15,13 @@
     <string name="checkbox_health_ht">Hypertension</string>
     <string name="checkbox_health_ihd">Ischemic heart disease</string>
     <string name="checkbox_health_diabetes">Diabetes</string>
-    <string name="text_play_sample">Play Sample</string>
-    <string name="text_stop_playing">Stop Playing</string>
-    <string name="text_stop">Stop</string>
-    <string name="text_start_recording">Start Recording</string>
-    <string name="text_stop_recording">Stop Recording</string>
-    <string name="text_play">Play</string>
-    <string name="text_thank_you">Thank you for being a part of this!
+    <string name="play_sample">Play Sample</string>
+    <string name="stop_playing">Stop Playing</string>
+    <string name="stop">Stop</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="play">Play</string>
+    <string name="thank_you_text">Thank you for being a part of this!
         Please share it among your friends and relatives.
         Follow us at <a href="https://www.facebook.com/coswara.iisc">Facebook</a> and <a href="https://twitter.com/coswara_iisc">Twitter</a> to get the latest updates.</string>
     <string name="text_warning">The recording device should not be shared with others before cleaning/sanitation</string>
@@ -47,22 +47,61 @@
     <string name="text_your_comments">Let us know your comments!</string>
     <string name="text_feedback">Feedback</string>
     <string name="send_feedback">Send Feedback</string>
-    <string name="project_coswara">Project  Coswara</string>
+    <string name="project_coswara">Project Coswara</string>
     <string name="proceed_to_data_recording">Proceed to Data Recording</string>
     <string name="read_more">Read more</string>
     <string name="current_status">Current Status*</string>
     <string name="health_conditions">Health Conditions</string>
     <string name="tick_mark">Tick mark</string>
-    <string name="start_recording">Start recording</string>
-    <string name="play_sample">Play sample</string>
-    <string name="play">Play</string>
     <string name="upload">Upload</string>
     <string name="record_again">Record again</string>
     <string name="uploading_please_wait">Uploading please wait!</string>
     <string name="cancel">Cancel</string>
-    <string name="enable_test">Enable test</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="checkbox_health_cough">Cough</string>
     <string name="checkbox_health_pneumonia">Pneumonia</string>
+    <string name="choose_language">Choose language</string>
+    <string name="disclaimer_content">This study builds on other previous studies which have reported
+        a high level of sensitivity for identifying respiratory illness from the human voice. Any tools
+        with statistical significance in disease detection will also be implemented as part of this app
+        at a later date. The participation in this study is purely voluntary and the details collected
+        will not contain any personally identifiable information.
+        \n\nThe entire recording and data collection should take about 5 minutes only. Please keep
+        your device around 20 cm from your face during the recording and perform the recording
+        in a quiet environment. The recording device should not be shared with others before cleaning/sanitation.
+        \n\nYou have accepted our terms and conditions.</string>
+    <string name="disclaimer_content_1">For any questions, please contact sriramg@iisc.ac.in</string>
+    <string name="start">Start</string>
+    <string name="view_terms">View terms</string>
+    <string name="tab_title_disclaimer">Disclaimer</string>
+    <string name="tab_title_metadata">Metadata</string>
+    <string name="tab_title_health_status">Health Status</string>
+    <string name="country">Country *</string>
+    <string name="gender">Gender *</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="state">State/Province *</string>
+    <string name="instruction_breathe_fast">Breathe fast 5 times</string>
+    <string name="instruction_breathe_deeply">Breathe deeply 5 times</string>
+    <string name="instruction_cough_mildly">Cough mildly 3 times</string>
+    <string name="instruction_cough_deeply">Cough deeply 3 times</string>
+    <string name="instruction_say_a">Say /a/ as in /made/ and sustain as long as possible</string>
+    <string name="instruction_say_e">Say /e/ as in /beet/ and sustain as long as possible</string>
+    <string name="instruction_say_o">Say /o/ as in /cool/ and sustain as long as possible</string>
+    <string name="instruction_count">Count from 1 to 20</string>
+    <string name="instruction_count_fast">Count from 1 to 20 faster</string>
+    <string name="instruction_thank_you">Thank you for your participation!</string>
+    <string name="option_breathing_shallow">Breathing (shallow)</string>
+    <string name="option_breathing_deep">Breathing (deep)</string>
+    <string name="option_cough_shallow">Cough (shallow)</string>
+    <string name="option_cough_heavy">Cough (heavy)</string>
+    <string name="option_vowel_a">Vowel /a/</string>
+    <string name="option_vowel_e">Vowel /e/</string>
+    <string name="option_vowel_o">Vowel /o/</string>
+    <string name="option_counting_normal">Counting (normal)</string>
+    <string name="option_counting_fast">Counting (fast)</string>
+    <string name="option_finished">Finished</string>
+    <string name="loading">Loading ...</string>
 </resources>

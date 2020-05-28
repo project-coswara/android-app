@@ -17,7 +17,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.project.coswara.BuildConfig;
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Utils;
 import com.project.coswara.adapters.CustomExpandableListAdapter;
 import com.project.coswara.model.FirestoreDB;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,9 +31,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static com.project.coswara.Constants.INSTRUCTIONS_LIST;
-import static com.project.coswara.Constants.OPTIONS_LIST;
-import static com.project.coswara.Constants.VALUES_LIST;
+import static com.project.coswara.util.Constants.VALUES_LIST;
 
 public class RecordAudioActivity extends AppCompatActivity {
 
@@ -86,7 +84,8 @@ public class RecordAudioActivity extends AppCompatActivity {
 
         final ExpandableListView expandableListView = findViewById(R.id.expandableListView);
         ExpandableListAdapter expandableListAdapter = new CustomExpandableListAdapter(this,
-                Arrays.asList(OPTIONS_LIST), Arrays.asList(VALUES_LIST), Arrays.asList(INSTRUCTIONS_LIST),
+                getResources().getStringArray(R.array.options_list), Arrays.asList(VALUES_LIST),
+                getResources().getStringArray(R.array.instructions_list),
                 statusList, getExternalCacheDir().getAbsolutePath(), storageRef,
                 uid, db, new ExpandGroupInterface() {
 

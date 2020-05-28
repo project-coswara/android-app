@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Coswara</string>
+    <string name="app_name_small">coswara</string>
+    <string name="health_status_1">मुझे कोविद -19 के साथ पहचाना गया है और हल्के लक्षण हैं</string>
+    <string name="health_status_2">मुझे कोविद -19 के साथ पहचाना गया है और मध्यम गंभीर लक्षण हैं</string>
+    <string name="health_status_3">मुझे कोविद -19 के साथ पहचाना गया था और पूरी तरह से ठीक हो गया है</string>
+    <string name="health_status_4">मुझे पहले से मौजूद अन्य सांस की बीमारी है लेकिन कोविद -19 से पहचान नहीं हुई है</string>
+    <string name="health_status_5">मुझे श्वसन संबंधी कोई बीमारी नहीं है लेकिन मैं संपर्क के माध्यम से वायरस के संपर्क में आ सकता हूं</string>
+    <string name="health_status_6">मुझे श्वसन संबंधी कोई बीमारी नहीं है</string>
+    <string name="intro_content">प्रोजेक्ट कॉसवारा Indian Institute of Science (IISc) बैंगलोर का श्वसन, खांसी और भाषण ध्वनियों के आधार पर कोविद –19 के लिए एक नैदानिक ​​उपकरण बनाने का प्रयास है। प्रोजेक्ट अभी डेटा कलेक्शन स्टेज में है। इसमें प्रतिभागियों को साँस लेने की आवाज़, खाँसी की आवाज़, स्वर ध्वनियों के निरंतर स्वर और एक गिनती व्यायाम की रिकॉर्डिंग प्रदान करने की आवश्यकता होती है, जो आपके समय के लगभग 5–7 मिनट लगते हैं। प्रतिभागियों से व्यक्तिगत रूप से पहचान योग्य डेटा एकत्र नहीं किया जाता है।</string>
+    <string name="checkbox_health_fever">बुखार</string>
+    <string name="checkbox_health_smoker">धूम्रपान करता हूँ</string>
+    <string name="checkbox_health_asthma">अस्थमा</string>
+    <string name="checkbox_health_cld">पुरानी फेफड़ों की बीमारी</string>
+    <string name="checkbox_health_ht">उच्च रक्तचाप</string>
+    <string name="checkbox_health_ihd">इस्केमिक दिल का रोग</string>
+    <string name="checkbox_health_diabetes">मधुमेह</string>
+    <string name="play_sample">नमूना सुनें</string>
+    <string name="stop_playing">नमूना बंद करो</string>
+    <string name="stop">रुकें</string>
+    <string name="start_recording">रिकॉर्डिंग शुरू</string>
+    <string name="stop_recording">रिकॉर्डिंग बंद करें</string>
+    <string name="play">खेल</string>
+    <string name="thank_you_text">इस का हिस्सा बनने के लिए धन्यवाद!
+        कृपया इसे अपने दोस्तों और रिश्तेदारों के बीच साझा करें।
+        लेटेस्ट अपडेट पाने के लिए हमें <a href="https://www.facebook.com/coswara.iisc">Facebook</a> और <a href="https://twitter.com/coswara_iisc">Twitter</a> पर फॉलो करें।
+    </string>
+    <string name="text_warning">रिकॉर्डिंग डिवाइस को सफाई / स्वच्छता से पहले दूसरों के साथ साझा नहीं किया जाना चाहिए</string>
+    <string name="text_participation">भाग लेने के लिए आपको धन्यवाद!</string>
+    <string name="text_feedback_thanks">आपकी प्रतिक्रिया के लिए आपका धन्यवाद!</string>
+    <string name="checkbox_health_cold">सर्दी</string>
+    <string name="text_mandatory">चिह्नित (*) सभी फ़ील्ड अनिवार्य हैं</string>
+    <string name="text_locality">इलाका / जिला</string>
+    <string name="text_location">स्थान</string>
+    <string name="text_no">नहीं</string>
+    <string name="text_yes">हाँ</string>
+    <string name="text_returning_user">क्या आप एक लौटने वाले उपयोगकर्ता हैं?</string>
+    <string name="text_proficient_in_english">क्या आप अंग्रेजी में पारंगत हैं? *</string>
+    <string name="text_valid_age">एक वैध उम्र की तरह नहीं दिखता है</string>
+    <string name="text_age_hint">उम्र *</string>
+    <string name="text_submit">भेजो</string>
+    <string name="text_start_session">एक नया सत्र शुरू करें</string>
+    <string name="text_alert_icon">alert_icon</string>
+    <string name="test_developed_by">द्वारा प्रस्तुत</string>
+    <string name="text_leap_org_image">Leap org image</string>
+    <string name="text_iisc_org_image">IISc org image</string>
+    <string name="cognknit_org_image">Cognknit org image</string>
+    <string name="text_your_comments">अपनी टिप्पणी हमें बताएं!</string>
+    <string name="text_feedback">प्रतिपुष्टि</string>
+    <string name="send_feedback">प्रतिक्रिया भेजें</string>
+    <string name="project_coswara">Project Coswara</string>
+    <string name="proceed_to_data_recording">डेटा रिकॉर्डिंग के लिए आगे बढ़ें</string>
+    <string name="read_more">अधिक पढ़ें</string>
+    <string name="current_status">वर्तमान स्थिति *</string>
+    <string name="health_conditions">स्वास्थ्य की स्थिति</string>
+    <string name="tick_mark">Tick mark</string>
+    <string name="upload">Upload</string>
+    <string name="record_again">फिर से रिकॉर्ड करें</string>
+    <string name="uploading_please_wait">Uploading कृपया प्रतीक्षा कीजिये!</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="previous">पिछला</string>
+    <string name="next">आगे</string>
+    <string name="checkbox_health_cough">खांसी</string>
+    <string name="checkbox_health_pneumonia">न्यूमोनिया</string>
+    <string name="choose_language">Choose language</string>
+    <string name="disclaimer_content">यह अध्ययन अन्य पिछले अध्ययनों पर बनाता है जिन्होंने उच्च स्तर की संवेदनशीलता की सूचना दी है
+        मानव आवाज से सांस की बीमारी की पहचान के लिए। सांख्यिकीय महत्व के साथ कोई उपकरण
+        बीमारी का पता लगाने को बाद में इस ऐप के हिस्से के रूप में भी लागू किया जाएगा। भागीदारी
+        इस अध्ययन में विशुद्ध रूप से स्वैच्छिक है और एकत्र किए गए विवरणों में कोई व्यक्तिगत रूप से शामिल नहीं होगा
+        पहचान योग्य जानकारी।
+        \n\nसंपूर्ण रिकॉर्डिंग और डेटा संग्रह में केवल 5 मिनट लगने चाहिए।
+        कृपया रिकॉर्डिंग के दौरान अपने डिवाइस को अपने चेहरे से लगभग 20 सेमी दूर रखें और प्रदर्शन करें
+        शांत वातावरण में रिकॉर्डिंग। रिकॉर्डिंग डिवाइस को दूसरों के साथ साझा नहीं किया जाना चाहिए
+        सफाई / स्वच्छता से पहले।
+        \n\nआपने हमारे नियम और शर्तें स्वीकार कर ली हैं।</string>
+    <string name="disclaimer_content_1">किसी भी प्रश्न के लिए, कृपया संपर्क करें sriramg@iisc.ac.in</string>
+    <string name="start">शुरू</string>
+    <string name="view_terms">शर्तें देखें</string>
+    <string name="tab_title_disclaimer">अस्वीकरण</string>
+    <string name="tab_title_metadata">मेटाडाटा</string>
+    <string name="tab_title_health_status">स्वास्थ्य की स्थिति</string>
+    <string name="country">देश *</string>
+    <string name="male">पुरुष</string>
+    <string name="gender">लिंग</string>
+    <string name="female">महिला</string>
+    <string name="gender_other">अन्य</string>
+    <string name="state">राज्य / प्रांत *</string>
+    <string name="instruction_breathe_fast">5 बार तेजी से सांस लें</string>
+    <string name="instruction_breathe_deeply">5 बार गहरी सांस लें</string>
+    <string name="instruction_cough_mildly">खांसी हल्के से 3 बार</string>
+    <string name="instruction_cough_deeply">3 बार गहरी खांसी</string>
+    <string name="instruction_say_a">कह /ए/ जैसे की /made/ और यथासंभव लंबे समय तक बनाए रखें</string>
+    <string name="instruction_say_e">कह /ई/ जैसे की /beet/ और यथासंभव लंबे समय तक बनाए रखे</string>
+    <string name="instruction_say_o">कह /ओ/ जैसे की /cool/ और यथासंभव लंबे समय तक बनाए रखे</string>
+    <string name="instruction_count">1 से 20 तक गिनती करें</string>
+    <string name="instruction_count_fast">1 से 20 तक तेजी से गिनें</string>
+    <string name="instruction_thank_you">भाग लेने के लिए आपको धन्यवाद!</string>
+    <string name="option_breathing_shallow">श्वास (उथला)</string>
+    <string name="option_breathing_deep">श्वास (गहरा)</string>
+    <string name="option_cough_shallow">खांसी (उथला)</string>
+    <string name="option_cough_heavy">खांसी (भारी)</string>
+    <string name="option_vowel_a">स्वर /a/</string>
+    <string name="option_vowel_e">स्वर /e/</string>
+    <string name="option_vowel_o">स्वर /o/</string>
+    <string name="option_counting_normal">गिनती (साधारण)</string>
+    <string name="option_counting_fast">गिनती (तेज)</string>
+    <string name="option_finished">समाप्त</string>
+    <string name="loading">लोड हो रहा है ...</string>
+</resources>

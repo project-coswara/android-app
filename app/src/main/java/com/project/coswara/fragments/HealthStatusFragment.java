@@ -1,6 +1,5 @@
 package com.project.coswara.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Utils;
 import com.project.coswara.activities.DetailsActivity;
 import com.project.coswara.model.HealthData;
 
@@ -25,24 +24,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.project.coswara.Constants.CONDITIONS;
-import static com.project.coswara.Constants.HEALTH_STATUSES;
+import static com.project.coswara.util.Constants.CONDITIONS;
+import static com.project.coswara.util.Constants.HEALTH_STATUSES;
 
 public class HealthStatusFragment extends Fragment {
 
     private final DetailsActivity.HealthDataUpdate callback;
-    private Context context;
     private final HealthData healthData;
     private final DetailsActivity.NavigateTabs navigateTabsCallback;
     private Button submitBtn;
     private final DetailsActivity.SubmitForm submitFormCallback;
     private ProgressBar progressBar;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
 
     public HealthStatusFragment(DetailsActivity.HealthDataUpdate callback,
                                 DetailsActivity.NavigateTabs navigateTabsCallback,

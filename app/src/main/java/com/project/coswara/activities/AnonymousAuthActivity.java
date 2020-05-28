@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Utils;
 import com.project.coswara.model.FirestoreDB;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

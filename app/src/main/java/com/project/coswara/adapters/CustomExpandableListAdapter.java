@@ -20,9 +20,9 @@ import androidx.annotation.NonNull;
 
 import com.project.coswara.BuildConfig;
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Utils;
 import com.project.coswara.activities.RecordAudioActivity;
-import com.project.coswara.RecordWaveTask;
+import com.project.coswara.util.RecordWaveTask;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -45,9 +45,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private static final String TAG = "RecordExpandListAdapter";
     private final Context context;
-    private final List<String> optionsList;
+    private final String[] optionsList;
     private final List<String> valuesList;
-    private final List<String> instrList;
+    private final String[] instrList;
 
     private final int STATE_NOT_STARTED = 0;
     private final int STATE_RECORDING_START = 1;
@@ -82,8 +82,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     private final RecordAudioActivity.FinishRecordInterface finishCallback;
     private UploadTask uploadTask = null;
 
-    public CustomExpandableListAdapter(Context context, List<String> optionsList, List<String> valuesList,
-                                       List<String> instrList, boolean[] statusList,
+    public CustomExpandableListAdapter(Context context, String[] optionsList, List<String> valuesList,
+                                       String[] instrList, boolean[] statusList,
                                        String ABSOLUTE_PATH,
                                        StorageReference storageRef, String uid,
                                        FirebaseFirestore db,
@@ -108,7 +108,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return this.optionsList.size();
+        return this.optionsList.length;
     }
 
     @Override
@@ -118,7 +118,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-        return this.optionsList.get(groupPosition);
+        return this.optionsList[groupPosition];
     }
 
     @Override
@@ -180,9 +180,8 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.list_item_record_audio, parent, false);
         }
 
-        String intructionText = instrList.get(groupPosition);
         instructionText = (TextView) convertView.findViewById(R.id.text_record_instruction);
-        instructionText.setText(intructionText);
+        instructionText.setText(instrList[groupPosition]);
 
         final String fileName = stageId + ".wav";
 
@@ -302,10 +301,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private void togglePlaySample(boolean newStatus) {
         if (newStatus) { //clicked on "Play sample"
-            playSampleBtn.setText(R.string.text_stop_playing);
+            playSampleBtn.setText(R.string.stop_playing);
             toggleButtonBg(playSampleBtn, true);
         } else { //clicked on "Stop"
-            playSampleBtn.setText(R.string.text_play_sample);
+            playSampleBtn.setText(R.string.play_sample);
             toggleButtonBg(playSampleBtn, false);
             samplePlayer.seekTo(0);
         }
@@ -314,12 +313,12 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private void togglePlayRecording(boolean newStatus) {
         if (newStatus) { //clicked on "Record"
-            playRecordingBtn.setText(R.string.text_stop);
+            playRecordingBtn.setText(R.string.stop);
             uploadRecordingBtn.setVisibility(View.GONE);
             recordAgainBtn.setVisibility(View.GONE);
             toggleButtonBg(playRecordingBtn, true);
         } else { //clicked on "Stop recording"
-            playRecordingBtn.setText(R.string.text_play);
+            playRecordingBtn.setText(R.string.play);
             uploadRecordingBtn.setVisibility(View.VISIBLE);
             recordAgainBtn.setVisibility(View.VISIBLE);
             recordPlayer.seekTo(0);
@@ -516,7 +515,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                 uploadRecordLyt.setVisibility(View.GONE);
                 playSampleBtn.setVisibility(View.VISIBLE);
                 instructionText.setVisibility(View.VISIBLE);
-                startRecordingBtn.setText(R.string.text_start_recording);
+                startRecordingBtn.setText(R.string.start_recording);
                 break;
             case STATE_RECORDING_START:
                 beforeRecordLyt.setVisibility(View.VISIBLE);
@@ -524,7 +523,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                 uploadRecordLyt.setVisibility(View.GONE);
                 playSampleBtn.setVisibility(View.GONE);
                 instructionText.setVisibility(View.VISIBLE);
-                startRecordingBtn.setText(R.string.text_stop_recording);
+                startRecordingBtn.setText(R.string.stop_recording);
                 break;
             case STATE_RECORDING_FINISH:
                 beforeRecordLyt.setVisibility(View.GONE);

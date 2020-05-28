@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import com.project.coswara.Constants;
 import com.project.coswara.activities.DetailsActivity;
 import com.project.coswara.fragments.DisclaimerFragment;
 import com.project.coswara.fragments.HealthStatusFragment;
@@ -23,13 +22,19 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
     private final Metadata metadata;
     private final HealthData healthData;
     private final DetailsActivity.SubmitForm submitFormCallback;
+    private final String[] tabTitles;
+    private final String[] countries;
+    private final String[] genders;
+    private final String defaultState;
 
     public CustomTabsAdapter(@NonNull FragmentManager fm, int behavior,
                              Metadata metadata, HealthData healthData,
                              DetailsActivity.MetadataUpdate metadataCallback,
                              DetailsActivity.HealthDataUpdate healthDataCallback,
                              DetailsActivity.NavigateTabs switchTabsCallback,
-                             DetailsActivity.SubmitForm submitFormCallback) {
+                             DetailsActivity.SubmitForm submitFormCallback,
+                             String[] tabTitles, String[] countries, String[] genders,
+                             String defaultState) {
         super(fm, behavior);
         this.numOfTabs = behavior;
         this.metadataCallback = metadataCallback;
@@ -38,6 +43,10 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
         this.metadata = metadata;
         this.healthData = healthData;
         this.submitFormCallback = submitFormCallback;
+        this.tabTitles = tabTitles;
+        this.countries = countries;
+        this.genders = genders;
+        this.defaultState = defaultState;
     }
 
     @NonNull
@@ -45,7 +54,8 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 1:
-                return new MetadataFragment(metadataCallback, switchTabsCallback, metadata);
+                return new MetadataFragment(metadataCallback, switchTabsCallback, metadata,
+                        countries, genders, defaultState);
             case 2:
                 return new HealthStatusFragment(healthDataCallback, switchTabsCallback, healthData,
                         submitFormCallback);
@@ -58,7 +68,7 @@ public class CustomTabsAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return Constants.TAB_TITLES[position];
+        return tabTitles[position];
     }
 
     @Override

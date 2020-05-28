@@ -15,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.project.coswara.Constants;
+import com.project.coswara.util.Constants;
 import com.project.coswara.R;
-import com.project.coswara.Utils;
+import com.project.coswara.util.Utils;
 import com.project.coswara.model.FirestoreDB;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,8 +26,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
-
-import static com.project.coswara.Constants.FEEDBACK_TEXT;
 
 public class FeedbackActivity extends AppCompatActivity {
 
@@ -46,12 +44,9 @@ public class FeedbackActivity extends AppCompatActivity {
         final TextView feedbackThanks = (TextView) findViewById(R.id.text_feedback_thanks);
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_feedback);
         final Button newSessionBtn = (Button) findViewById(R.id.button_start_new_session);
-        TextView thankYouText = (TextView) findViewById(R.id.text_thank_you);
         ImageView orgLeap = (ImageView) findViewById(R.id.image_leap_org);
         ImageView orgIISc = (ImageView) findViewById(R.id.image_iisc_org);
         ImageView orgCogknit = (ImageView) findViewById(R.id.image_cogknit_org);
-
-        Utils.enableLinksInText(thankYouText, FEEDBACK_TEXT);
 
         orgLeap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +119,7 @@ public class FeedbackActivity extends AppCompatActivity {
                 HashMap<String, Object> map = new HashMap<>();
                 map.put("fb", feedbackText);
                 map.put("uid", FirestoreDB.getFirebaseUser().getUid());
-                if(Utils.isTestModeOn(FeedbackActivity.this)) map.put("test", true);
+                if(Utils.isDebugMode(FeedbackActivity.this)) map.put("test", true);
 
                 db.collection("FEEDBACK")
                         .add(map)
@@ -150,9 +145,11 @@ public class FeedbackActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+    public void onFacebookClick(View view) {
+        Utils.openInBrowser(FeedbackActivity.this, Constants.FB_URL);
+    }
+
+    public void onTwitterClick(View view) {
+        Utils.openInBrowser(FeedbackActivity.this, Constants.TWITTER_URL);
     }
 }
